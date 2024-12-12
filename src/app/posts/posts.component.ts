@@ -1,13 +1,15 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit , inject } from '@angular/core';
 import { HttpClient , HttpClientModule } from '@angular/common/http';
+import  { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-posts',
-  imports: [HttpClientModule],
+  standalone: true,
+  imports: [CommonModule , HttpClientModule],
   templateUrl: './posts.component.html',
   styleUrl: './posts.component.scss'
 })
-export class PostsComponent{
+export class PostsComponent implements OnInit {
   httpClient = inject(HttpClient);
   public data : Array<any> = [];
 
